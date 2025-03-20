@@ -1,0 +1,25 @@
+body {
+    background-color: lightpink;
+    color: darkgreen;
+    font-family: Arial;
+    margin: 0px;
+}
+header {
+    background-color: darkgreen;
+    color: lightpink;
+    padding: 10px;
+    font-size: 12pt;
+}
+ main {
+    font-size: 14pt;
+ }
+ footer {
+    background-color: darkgreen;
+    color: lightpink;
+    padding: 10px;
+    font-size: 12pt;
+    text-align: right;
+ }
+ a {
+    text-decoration: none;
+ }
