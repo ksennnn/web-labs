@@ -4,22 +4,48 @@ body {
     font-family: Arial;
     margin: 0px;
 }
+
 header {
     background-color: darkgreen;
     color: lightpink;
     padding: 10px;
     font-size: 12pt;
 }
- main {
+ 
+a {
+   text-decoration: none;
+   color: blueviolet;
+}
+
+a:link {
+  color: blueviolet;
+}
+
+a:visited {
+  color: rgb(99, 4, 39);
+  opacity: 0.6;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+  background-color: rgb(202, 174, 239);
+  text-shadow: 5px 5px 15px rgba(140, 0, 255, 0.428);
+}
+
+a:active {
+  color: red;
+  opacity: 0.6;
+}
+
+main {
     font-size: 14pt;
  }
+
  footer {
     background-color: darkgreen;
     color: lightpink;
     padding: 10px;
     font-size: 12pt;
     text-align: right;
- }
- a {
-    text-decoration: none;
  }
