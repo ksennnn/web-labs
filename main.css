@@ -54,6 +54,7 @@ a:active {
 main {
     font-size: 14pt;
     line-height: 1.5;
+    margin: 10px 20px 58.4px;
  }
 
  footer {
@@ -62,4 +63,8 @@ main {
     padding: 10px;
     font-size: 12pt;
     text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
  }
