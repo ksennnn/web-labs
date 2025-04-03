@@ -11,7 +11,18 @@ header {
     padding: 10px;
     font-size: 12pt;
 }
- 
+
+div.menu {
+   border: 3px solid rgb(17, 85, 39);
+   border-radius: 5px;
+   width: 400px;
+   margin: 0 auto;
+}
+
+div.menu:hover {
+   background-color: rgb(242, 236, 241);
+   box-shadow: 0 0 15px rgba(83, 78, 78, 0.67);
+}
 a {
    text-decoration: none;
    color: blueviolet;
@@ -31,7 +42,7 @@ a:hover {
   color: blue;
   text-decoration: underline;
   background-color: rgb(202, 174, 239);
-  text-shadow: 5px 5px 15px rgba(140, 0, 255, 0.428);
+  text-shadow: 10px 10px 20px rgba(72, 71, 73, 0.932);
   transition: 0.3s;
 }
 
@@ -42,6 +53,7 @@ a:active {
 
 main {
     font-size: 14pt;
+    line-height: 1.5;
  }
 
  footer {
