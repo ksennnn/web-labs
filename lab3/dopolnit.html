@@ -17,8 +17,7 @@
             .cl5 div,
             .cl6 div {
                 opacity: 0; 
-                visibility: hidden;  
-                transition: opacity 2s ease, visibility 2s;
+                transition: opacity 2s ease;
             }
 
             .cl1:hover div,
@@ -28,8 +27,7 @@
             .cl5:hover div,
             .cl6:hover div {
                 opacity: 1; 
-                visibility: visible; 
-                transition: opacity 2s ease, visibility 0s 2s;  
+                transition: opacity 2s ease;  
             }
 
             .cl1,
@@ -48,7 +46,7 @@
                 background-color: rgb(235, 73, 189);
                 overflow: hidden;
                 position: relative;
-                transition: 2s, 1s;
+                transition: 2s;
                 transition-delay: 2s;
                 text-align: justify;
                 margin-bottom: 10px;
@@ -73,6 +71,7 @@
                 border: 6px solid rgb(0, 0, 0);
                 text-indent: 1.25cm;
                 line-height: 1.5;
+                transition-delay: 0s;
              }
             h2 {
                 cursor: pointer;
