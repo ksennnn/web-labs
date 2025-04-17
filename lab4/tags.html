@@ -18,28 +18,48 @@
                 transition: all 0.3s ease;
                 cursor: pointer;
                 font-weight: bold;
-                transform-origin: center;
+                animation-duration: 5s; 
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-direction: alternate; 
+                animation-play-state: running; 
             }
             .tag:hover {
-            transform: scale(1.5) rotate(0deg);
-            z-index: 100;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+                z-index: 100;
+                text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+                animation-play-state: paused;
+                font-size: calc(100% + 40px);
             }
-            .tag1 { color: deeppink; font-size: 60px; top: 100px; left: 70px; transform: rotate(-10deg); }
-            .tag2 { color: black; font-size: 45px; top: 150px; left: 250px; transform: rotate(5deg); }
-            .tag3 { color: yellow; font-size: 35px; top: 300px; left: 100px; transform: rotate(-20deg); }
-            .tag4 { color: red; font-size: 40px; top: 300px; left: 700px; transform: rotate(15deg); }
-            .tag5 { color: blue; font-size: 25px; top: 400px; left: 150px; transform: rotate(-30deg); }
-            .tag6 { color: green; font-size: 30px; top: 500px; left: 1100px; transform: rotate(10deg); }
-            .tag7 { color: purple; font-size: 20px; top: 50px; left: 500px; transform: rotate(-15deg); }
-            .tag8 { color: gray; font-size: 50px; top: 100px; left: 700px; transform: rotate(25deg); }
-            .tag9 { color: magenta; font-size: 40px; top: 200px; left: 700px; transform: rotate(-5deg); }
-            .tag10 { color: limegreen; font-size: 22px; top: 400px; left: 500px; transform: rotate(35deg); }
-            .tag11 { color: coral; font-size: 28px; top: 150px; left: 700px; transform: rotate(-12deg); }
-            .tag12 { color: darkblue; font-size: 38px; top: 400px; left: 300px; transform: rotate(18deg); }
-            .tag13 { color: goldenrod; font-size: 50px; top: 350px; left: 1000px; transform: rotate(-25deg); }
-            .tag14 { color: teal; font-size: 26px; top: 500px; left: 200px; transform: rotate(8deg); }
-            .tag15 { color: darkred; font-size: 34px; top: 500px; left: 450px; transform: rotate(-8deg); }
+            @keyframes float1 { 0%{transform: translate(0, 0) rotate(0deg);} 50%{transform: translate(300px, -10px) rotate(-10deg);} 100%{transform: translate(0, 0) rotate(0deg);} }
+            @keyframes float2 { 0%{transform: translate(0, 0) rotate(5deg);} 50%{transform: translate(150px, 60px) rotate(-5deg);} 100%{transform: translate(0, 0) rotate(5deg);} }
+            @keyframes float3 { 0% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(500px, 80px) rotate(-20deg); } 100% { transform: translate(0, 0) rotate(20deg); } }
+            @keyframes float4 { 0%{transform: translate(0, 0) rotate(15deg);} 50%{transform: translate(-100px, -300px) rotate(0deg);} 100%{transform: translate(0, 0) rotate(-15deg);} }
+            @keyframes float5 { 0%{transform: translate(0, 0) rotate(0deg);} 50%{transform: translate(500px, -100px) rotate(30deg);} 100%{transform: translate(0, 0) rotate(0deg);} }
+            @keyframes float6 { 0%{transform: translate(0, 0) rotate(10deg);} 50%{transform: translate(-250px, -10px) rotate(0deg);} 100%{transform: translate(0, 0) rotate(-10deg);} }
+            @keyframes float7 { 0% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(15px, 25px) rotate(5deg); } 100% { transform: translate(0, 0) rotate(0deg); } }
+            @keyframes float8 { 0%{transform: translate(0, 0);} 50%{transform: translate(-10px, 300px);} 100%{transform: translate(0, 0);} }
+            @keyframes float9 { 0%{transform: translate(0, 0);} 50%{transform: translate(35px, -15px);} 100%{transform: translate(0, 0);} }
+            @keyframes float10 { 0%{transform: translate(0, 0) rotate(35deg);} 50%{transform: translate(-300px, 20px) rotate(0deg);} 100%{transform: translate(0, 0) rotate(35deg);} }
+            @keyframes float11 { 0%{transform: translate(0, 0);} 50%{transform: translate(20px, -150px);} 100%{transform: translate(0, 0);} }
+            @keyframes float12 { 0% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(-15px, 10px) rotate(-10deg); } 100% { transform: translate(0, 0) rotate(0deg); } }
+            @keyframes float13 { 0% { transform: translate(0, 0) rotate(-25deg); } 50% { transform: translate(150px, -100px) rotate(15deg); } 100% { transform: translate(0, 0) rotate(0deg); } }
+            @keyframes float14 { 0% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(-20px, 20px) rotate(-30deg); } 100% { transform: translate(0, 0) rotate(0deg); } }
+            @keyframes float15 { 0%{transform: translate(0, 0) rotate(0deg);} 50%{transform: translate(300px, 50px) rotate(-10deg);} 100%{transform: translate(0, 0) rotate(0deg);} }
+            .tag1 { color: deeppink; font-size: 50px; top: 100px; left: 70px; animation-name: float1; }
+            .tag2 { color: black; font-size: 45px; top: 150px; left: 250px; animation-name: float2; }
+            .tag3 { color: yellow; font-size: 35px; top: 300px; left: 100px; animation-name: float3; }
+            .tag4 { color: red; font-size: 40px; top: 300px; left: 700px; animation-name: float4; }
+            .tag5 { color: blue; font-size: 25px; top: 400px; left: 150px; animation-name: float5; }
+            .tag6 { color: green; font-size: 30px; top: 500px; left: 1100px; animation-name: float6; }
+            .tag7 { color: purple; font-size: 20px; top: 50px; left: 500px; animation-name: float7; }
+            .tag8 { color: gray; font-size: 50px; top: 100px; left: 700px; animation-name: float8; }
+            .tag9 { color: magenta; font-size: 40px; top: 200px; left: 700px; animation-name: float9; }
+            .tag10 { color: limegreen; font-size: 22px; top: 400px; left: 500px; animation-name: float10; }
+            .tag11 { color: coral; font-size: 28px; top: 150px; left: 700px; animation-name: float11; }
+            .tag12 { color: darkblue; font-size: 38px; top: 400px; left: 300px; animation-name: float12; }
+            .tag13 { color: goldenrod; font-size: 50px; top: 350px; left: 1000px; animation-name: float13; }
+            .tag14 { color: teal; font-size: 26px; top: 500px; left: 200px; animation-name: float14; }
+            .tag15 { color: darkred; font-size: 34px; top: 500px; left: 450px; animation-name: float15; }
         </style>
     </head>
     <body>
