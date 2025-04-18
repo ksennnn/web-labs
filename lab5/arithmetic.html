@@ -9,6 +9,27 @@
         <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <link rel="icon" href="../favicon-16x16.png">
         <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+            function showSum() {
+                let a = 5154;
+                let b = 7891;
+                let result = a + b;
+                alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
+            }
+        </script>
+        <style>
+            .message {
+                width: 300px;
+                height: 50px;
+                background-color: rgb(218, 190, 242);
+                border: 3px solid black;
+                display: inline-block;
+                text-align: center;
+                border-radius: 10px;
+                margin: 10px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -16,11 +37,8 @@
         </header>
 
         <main>
-            <ul>
-                <li>
-                    <a href="arithmetic.html">Вывод суммы</a>
-                </li>
-            </ul>
+            <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
+            <div class="message">Узнать, кто автор страницы</div>
         </main>
         </main>
 
