@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Лабораторная 5</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+            function hideCircle(element) {
+                element.style.opacity = '0';
+                element.style.transform = "scale(0)";
+                element.style.transition = '0.8s';
+    
+            }
+            function showBack() {
+                    document.getElementById('a').style.opacity = '1';
+                    document.getElementById('a').style.transform = "scale(1)";
+                    document.getElementById('b').style.opacity = '1';
+                    document.getElementById('b').style.transform = "scale(1)";
+                    document.getElementById('c').style.opacity = '1';
+                    document.getElementById('c').style.transform = "scale(1)";
+                    document.getElementById('d').style.opacity = '1';
+                    document.getElementById('d').style.transform = "scale(1)";
+                    document.getElementById('e').style.opacity = '1';
+                    document.getElementById('e').style.transform = "scale(1)";
+                    document.getElementById('f').style.opacity = '1';
+                    document.getElementById('f').style.transform = "scale(1)";
+                    document.getElementById('g').style.opacity = '1';
+                    document.getElementById('g').style.transform = "scale(1)";
+                    document.getElementById('h').style.opacity = '1';
+                    document.getElementById('h').style.transform = "scale(1)";
+                    document.getElementById('i').style.opacity = '1';
+                    document.getElementById('i').style.transform = "scale(1)";
+                    document.getElementById('j').style.opacity = '1';
+                    document.getElementById('j').style.transform = "scale(1)";
+            }
+        </script>
+        <style>
+            div {
+                cursor: pointer;
+                border: 5px solid #0001;
+                border-radius: 100%;
+                width: 50px;
+                height: 50px;
+                display: flex;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                font-family: 'Times New Roman';
+                font-size: 20px;
+                color: white;
+            }
+            button {
+                cursor: pointer;
+                color:rgb(219, 227, 238);
+                font-weight: bold;
+                font-family: 'Times New Roman';
+                font-size: 20px;
+                background-color: rgb(13, 15, 15);
+                border: 3px solid rgb(6, 6, 6);
+                border-radius: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 5
+        </header>
+
+        <main>
+            <button onclick="showBack()">Вернуть</button>
+            <div id='a' onclick="hideCircle(this)" style="background-color: rgb(51, 5, 94); left: 190px; top: 300px;">1</div>
+            <div id="b" onclick="hideCircle(this)" style="background-color: rgb(7, 75, 12); left: 700px; top: 100px;">2</div>
+            <div id="c" onclick="hideCircle(this)" style="background-color: rgb(239, 0, 223); left: 900px; top: 300px;">3</div>
+            <div id="d" onclick="hideCircle(this)" style="background-color: rgb(234, 74, 0); left: 1100px; top: -100px;">4</div>
+            <div id="e" onclick="hideCircle(this)" style="background-color: rgb(0, 115, 255); left: 190px; top: 300px;">5</div>
+            <div id="f" onclick="hideCircle(this)" style="background-color: rgb(116, 0, 0); left: 230px; top: -300px;">6</div>
+            <div id="g" onclick="hideCircle(this)" style="background-color: rgb(123, 0, 238); left: 600px; top: 10px;">7</div>
+            <div id="h" onclick="hideCircle(this)" style="background-color: rgb(172, 167, 0); left: 1300px; top: 100px;">8</div>
+            <div id="i" onclick="hideCircle(this)" style="background-color: rgb(30, 179, 0); left: 1200px; top: -230px;">9</div>
+            <div id="j" onclick="hideCircle(this)" style="background-color: rgb(71, 0, 71); left: 400px; top: -400px;">10</div>
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
