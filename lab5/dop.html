@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Дополнительное задание</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+            function applyFilter(event) {
+                let img = document.getElementById('dopImage');
+                let info = document.getElementById('info');
+                let rect = img.getBoundingClientRect();
+                let mouseX = event.clientX - rect.left;
+                let width = rect.width;
+
+                let filterName = 'grayscale';
+                let unit = '%';
+                let filterValue = (mouseX / width) * 100;
+
+                if (event.ctrlKey) {
+                    filterName = 'saturate';
+                    unit = '%';
+                    filterValue = (mouseX / width) * 500;
+                }
+
+                else if (event.altKey) {
+                    filterName = 'hue-rotate';
+                    unit = 'deg';
+                    filterValue = (mouseX / width) * 360;
+                }
+
+                else if (event.shiftKey) {
+                    filterName = 'sepia';
+                    unit = '%';
+                    filterValue = (mouseX / width) * 100;
+                }
+
+                img.style.filter = filterName + '(' + filterValue + unit + ')';
+                info.innerText = 'Активный фильтр: ' + filterName + ' (' + Math.round(filterValue) + unit + ')';
+            }
+        </script>
+        <style>
+             main {
+            text-align: center;
+            }
+            img {
+            width: 450px;
+            height: 500px;
+            transition: filter 0.2s;
+            border: 2px solid #ecc0da;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 5
+        </header>
+
+        <main>
+            <img src="ferret.jpg" id="dopImage" onmousemove="applyFilter(event)">
+            <div id="info">Активный фильтр: none</div>
+            <div>
+                Наведите мышку на картинку.<br>
+                При наведении будет работать фильтр grayscale.<br>
+                Чем правее мышь — тем сильнее эффект.<br>
+                Удерживайте Ctrl для saturate, Alt для hue-rotate, Shift для sepia.
+            </div>
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
