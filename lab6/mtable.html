@@ -4,23 +4,35 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ковалёва Ксения Николаевна. Лабораторная 6</title>
+        <title>Ковалёва Ксения Николаевна. Таблица умножения</title>
         <link rel="stylesheet" href="../main.css">
         <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <link rel="icon" href="../favicon-16x16.png">
         <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+            function showMutipleTable() {
+                let tbl = document.getElementById('mtable');
+                tbl.innerHTML = '<h1>Таблица умножения</h1>';
+                for(i=1; i<=10; i++) {
+                    let s = `<div>${i} * 7 = ${i*7}</div>`;
+                    tbl.innerHTML += s;
+                }
+            }
+        </script>
+        <style>
+            div {
+                font-family: 'Times New Roman';
+                font-weight: bold;
+            }
+        </style>
     </head>
-    <body>
+    <body onload="showMutipleTable()">
         <header>
             НГТУ, ФБ, Лабораторная 6
         </header>
 
         <main>
-            <ul>
-                <li>
-                    <a href="mtable.html">Таблица умножения</a>
-                </li>
-            </ul>
+            <div id="mtable"></div>
         </main>
 
         <footer>
