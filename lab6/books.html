@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Книги</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script src="books.js"></script>
+        <script>
+             function showBooks() {
+                const bookList = document.getElementById('bookList');
+                    for(let i = 0; i < books.length; i++) {
+                    const book = books[i];
+                    let bookClass = 'book';
+
+                    if (book.bestseller) {
+                        bookClass += ' bestseller';
+                    }
+                    if (!book.inStock) {
+                        bookClass += ' unavailable';
+                    }
+                    bookList.innerHTML += `
+                        <div class="${bookClass}">
+                            <b>${ books[i].author}.</b>
+                            <i>${ books[i].name}</i>
+                            &mdash; ${ books[i].publicationYear}
+                            &mdash; Цена: ${books[i].price} руб.
+                            ${book.bestseller ?  '<sup style="background-color: lime; padding: 3px; border-radius: 8px; color: black">Бестселлер</sup>':''}
+                            ${book.inStock ? '' : '<br><span >Нет в наличии</span>'}
+                        </div>
+                    `;
+                }
+            }
+        </script>
+        <style>
+            h1 {
+                text-align: center;
+                text-shadow: 3px 3px 10px #3d3838;
+                color: rgb(73, 2, 77);
+            }
+            .book {
+            border: 3px solid rgb(72, 4, 59);
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgb(56, 55, 55);
+            margin-top: 10px;
+            padding: 10px;
+            color: #48063b;
+            background-color: #bf75b0;
+            text-align: center;
+            }
+            .bestseller {
+            color: #e5e1e4;
+            background-color: #6a263d;
+            }
+            .unavailable {
+                color: #555252;
+                background-color: #999;
+            }
+
+        </style>
+    </head>
+    <body onload="showBooks()">
+        <header>
+            НГТУ, ФБ, Лабораторная 6
+        </header>
+
+        <main>
+            <h1>Список книг</h1>
+            <div id="bookList"></div> 
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
