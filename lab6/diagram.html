@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Диаграмма</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+            function showDiagram() {
+                let data = [36, 86, 55, 28, 92, 60, 41, 17, 9, 43];
+                let colors = ['darkKhaki', 'mediumOrchid','brown','indianred','orange','hotpink','tomato','darkslateblue', 'darkturquoise','burlywood'];
+
+                let bars = document.getElementsByClassName('bar');
+                const diagHeight = document.getElementById('diag').clientHeight;
+                const maxData = Math.max(...data);
+                const k = diagHeight / maxData * 0.9;
+                for(let i = 0; i < data.length; i++){
+                    bars[i].style.height = k*data[i] + 'px';
+                    bars[i].style.backgroundColor = colors[i % colors.length];
+                    bars[i].innerText = data[i];
+                }  
+            }
+        </script>
+        <style>
+             #diag {
+                position: relative;
+                height: 600px;
+                display: flex;
+                align-items: flex-end;
+            }
+            .bar {
+                width:200px;
+                height: 300px;
+                margin: 3px;
+                text-align: center;
+                padding-top: 4px;
+                color: #000;  
+            }
+        </style>
+    </head>
+    <body onload="showDiagram()">
+        <header>
+            НГТУ, ФБ, Лабораторная 6
+        </header>
+
+        <main>
+            <div id="diag">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
