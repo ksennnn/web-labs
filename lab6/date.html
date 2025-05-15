@@ -29,15 +29,47 @@
                 <div><b>Дата и время для сингапурской локали:</b> ${sgDate}</div>
             `;
             }
+            function changeColors() {
+                    const header = document.getElementsByTagName('header')[0];
+                    const rgb = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+                    header.style.color = rgb;
+            }
+            let timerNum;
+            function startChangeColors(){
+                changeColors();
+                timerNum = setInterval(changeColors, 1000);
+                document.getElementById('start-btn').disabled = true;
+                document.getElementById('stop-btn').disabled = false;
+            }
+            function stopChangeColors(){
+                clearInterval(timerNum);
+                document.getElementById('start-btn').disabled = false;
+                document.getElementById('stop-btn').disabled = true;
+            }
         </script>
         <style>
+            header {
+                transition: color 0.5s;
+            }
             div {
-            margin: 5px;
-            font-size: 24px;
-            text-shadow: 1px 1px 3px rgb(53, 49, 49);
-            text-align: center;
-            color: rgb(202, 14, 121);
-        }
+                margin: 5px;
+                font-size: 30px;
+                text-shadow: 1px 1px 3px rgb(53, 49, 49);
+                text-align: center;
+                color: rgb(202, 14, 121);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            #start-btn, #stop-btn {
+                margin-top: 20px;
+                background-color: rgb(199, 13, 127);
+                color: white;
+                border-radius: 30px;
+                width: 200px;
+                height: 50px;
+                font-size: 18px;
+                box-shadow: 5px 5px 10px #444141;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
 
         </style>
     </head>
@@ -48,6 +80,10 @@
 
         <main>
             <div id="current-date"></div>
+            <div>
+                <button onclick="startChangeColors()"  id="start-btn">Старт</button>
+                <button onclick="stopChangeColors()" disabled id="stop-btn">Стоп</button>
+            </div>
         </main>
 
         <footer>
