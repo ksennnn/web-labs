@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Доп. задание</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+            let data = []; 
+            
+            function showDiagram() {
+                data = []; 
+                for (let i = 0; i < 30; i++) { 
+                    let minTemp = Math.floor(Math.random() * 10) + 5; 
+                    let maxTemp = Math.floor(Math.random() * 10) + minTemp + 1; 
+                    data.push({ min: minTemp, max: maxTemp }); 
+                }
+                const bars = document.getElementsByClassName('bar'); 
+                const diagHeight = document.getElementById('chartContainer').clientHeight; 
+                
+                var maxValues = data.map(function(d) { 
+                    return d.max; 
+                });
+                let maxData = Math.max.apply(null, maxValues); 
+                const k = diagHeight / maxData * 0.9; 
+                for (let i = 0; i < bars.length; i++) { 
+                    const bar = bars[i];
+                    const minTemp = data[i].min; 
+                    const maxTemp = data[i].max; 
+                    const barHeightMin = k * minTemp; 
+                    const barHeightMax = k * (maxTemp - minTemp); 
+                    bar.style.height = k * maxTemp + 'px'; 
+                    bar.innerHTML =  
+                    '<div class="max-temp" style="height: ' + barHeightMax + 'px">' + 
+                        '<span class="temp-label">' + maxTemp + '°C</span>' + 
+                    '</div>' +
+                    '<div class="min-temp" style="height: ' + barHeightMin + 'px">' + 
+                        '<span class="temp-label">' + minTemp + '°C</span>' + 
+                    '</div>';
+                    }
+            }
+            function selectInput() {
+                const day = parseInt(document.getElementById('dayInput').value); 
+                const infoDiv = document.getElementById('selectDay'); 
+                if (day >= 1 && day <= 30) { 
+                    const bars = document.getElementsByClassName('bar'); 
+                    Array.from(bars).forEach(function(bar) { 
+                        bar.classList.remove('highlight'); 
+                    });
+                    const selectedBar = bars[day - 1]; 
+                    selectedBar.classList.add('highlight'); 
+                    const dayData = data[day - 1]; 
+                    infoDiv.textContent = 'День ' + day + ': Минимальная температура ' + dayData.min + '°C, Максимальная температура ' + dayData.max + '°C';
+                } else { 
+                    infoDiv.textContent = ''; 
+                    Array.from(bars).forEach(function(bar) {
+                        bar.classList.remove('highlight'); 
+                    });
+                }
+            }
+        </script>
+        <style>
+            h1 {
+                margin: 10px;
+                color:#71066a;
+                text-align: center;
+            }
+            .chart {
+                background-color: rgb(237, 122, 206);
+                border: 2px solid rgb(233, 1, 194);
+                border-radius: 20px;
+                position: relative; 
+                height: 490px; 
+                display: flex; 
+                align-items: flex-end;
+            }
+            .bar {
+                width: 50px;
+                margin: 5px; 
+                display: flex; 
+                flex-direction: column; 
+                justify-content: flex-end; 
+                position: relative;
+                border: 2px solid purple;
+            }
+            .max-temp {
+                background-color: rgb(144, 203, 238); 
+                width: 100%; 
+                position: absolute; 
+                top: 0; 
+            }
+            .min-temp {
+                background-color: rgb(9, 9, 73); 
+                width: 100%;
+                position: absolute; 
+                bottom: 0;
+            }
+            .temp-label {
+                position: absolute; 
+                color: white; 
+                font-size: 14px; 
+                font-weight: bold;                
+            }
+            .max-temp .temp-label {
+                top: -20px;
+            }
+            .min-temp .temp-label {
+                bottom: 80%;
+            }
+            .bar.highlight .max-temp {
+                background-color: #ffb566; 
+            }
+            .bar.highlight .min-temp {
+                background-color: #c95909; 
+            }
+            #dayInput {
+                margin-top: 10px;
+                width: 220px;
+                height: 30px;
+                position: relative;
+                left: 42%;
+                text-align: center;
+            }
+            #selectDay {
+                margin-top: 10px;
+                color: #5d1033; 
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body onload="showDiagram()">
+        <header>
+            НГТУ, ФБ, Лабораторная 6
+        </header>
+
+        <main>
+            <h1>Температурная диаграмма</h1>
+        
+            <div class="chart" id="chartContainer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+    
+            <div>
+                <input type="number" id="dayInput" min="1" max="30" placeholder="Введите номер дня (от 1 до 30)" oninput="selectInput()"><br>
+                <div id="selectDay"></div>
+            </div>
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
