@@ -10,19 +10,45 @@
         <link rel="icon" href="../favicon-16x16.png">
         <link rel="icon" href=".../favicon-32x32.png">
         <script>
-            function showMutipleTable() {
-                let tbl = document.getElementById('mtable');
-                tbl.innerHTML = '<h1>Таблица умножения</h1>';
-                for(i=1; i<=10; i++) {
-                    let s = `<div>${i} * 7 = ${i*7}</div>`;
-                    tbl.innerHTML += s;
+            function showMutipleTable(){
+                let tb1 = document.getElementById('mtable');
+                let inputA = document.getElementById('a');
+                let inputB = document.getElementById('b');
+                let inputC = document.getElementById('c');
+                let a = parseInt(inputA.value) ||0;
+                let b = parseInt(inputB.value) ||0;
+                let c = parseInt(inputC.value) ||0;
+                tb1.innerHTML = '<h1> Таблица умножения </h1>';
+                for( let i = b; i <=c; i++) {
+                    let s = `<div>${i} * ${a} =  ${i*a}</div>`;
+                    tb1.innerHTML += s;
+                }
+                if(b>c){
+                    alert('Ошибка');
+                    return;
                 }
             }
         </script>
         <style>
+            h1 {
+                font-size: 24pt;
+            }
             div {
                 font-family: 'Times New Roman';
                 font-weight: bold;
+                border: 1px solid green;
+                position: relative;
+                text-align: center;
+                margin: 10px;
+                background-color: white;
+            }
+            #mtable {
+                width: 400px;
+                left: 35%;
+            }
+            hr {
+                border: none;
+                border-top: 2px solid green;
             }
         </style>
     </head>
@@ -33,6 +59,11 @@
 
         <main>
             <div id="mtable"></div>
+            <hr>
+            <label >Умножить на:<input type="number" value="7" id="a"><br></label>
+            <label>Начать с: <input type="number"  value="1" id="b"><br></label>
+            <label>Закончить на: <input type="number"  value="10"id="c"><br></label>
+            <input type="button" value="Таблица" onclick="showMutipleTable()">
         </main>
 
         <footer>
