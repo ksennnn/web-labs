@@ -14,26 +14,26 @@
              function showBooks() {
                 const bookList = document.getElementById('bookList');
                     for(let i = 0; i < books.length; i++) {
-                    const book = books[i];
-                    let bookClass = 'book';
+                        const book = books[i];
+                        let bookClass = 'book';
 
-                    if (book.bestseller) {
-                        bookClass += ' bestseller';
+                        if (book.bestseller) {
+                            bookClass += ' bestseller';
+                        }
+                        if (!book.inStock) {
+                            bookClass += ' unavailable';
+                        }
+                        bookList.innerHTML += `
+                            <div class="${bookClass}">
+                                <b>${ books[i].author}.</b>
+                                <i>${ books[i].name}</i>
+                                &mdash; ${ books[i].publicationYear}
+                                &mdash; Цена: ${books[i].price} руб.
+                                ${book.bestseller ?  '<sup style="background-color: lime; padding: 3px; border-radius: 8px; color: black">Бестселлер</sup>':''}
+                                ${book.inStock ? '' : '<br><span >Нет в наличии</span>'}
+                            </div>
+                        `;
                     }
-                    if (!book.inStock) {
-                        bookClass += ' unavailable';
-                    }
-                    bookList.innerHTML += `
-                        <div class="${bookClass}">
-                            <b>${ books[i].author}.</b>
-                            <i>${ books[i].name}</i>
-                            &mdash; ${ books[i].publicationYear}
-                            &mdash; Цена: ${books[i].price} руб.
-                            ${book.bestseller ?  '<sup style="background-color: lime; padding: 3px; border-radius: 8px; color: black">Бестселлер</sup>':''}
-                            ${book.inStock ? '' : '<br><span >Нет в наличии</span>'}
-                        </div>
-                    `;
-                }
             }
         </script>
         <style>
