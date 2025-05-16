@@ -20,7 +20,7 @@
                 const k = diagHeight / maxData * 0.9;
                 for(let i = 0; i < data.length; i++){
                     bars[i].style.height = k*data[i] + 'px';
-                    bars[i].style.backgroundColor = colors[i % colors.length];
+                    bars[i].style.backgroundColor = colors[i];
                     bars[i].innerText = data[i];
                 }  
             }

@@ -46,20 +46,17 @@
             function selectInput() {
                 const day = parseInt(document.getElementById('dayInput').value); 
                 const infoDiv = document.getElementById('selectDay'); 
+                const bars = document.getElementsByClassName('bar'); 
+                Array.from(bars).forEach(function(bar) { 
+                    bar.classList.remove('highlight'); 
+                });
                 if (day >= 1 && day <= 30) { 
-                    const bars = document.getElementsByClassName('bar'); 
-                    Array.from(bars).forEach(function(bar) { 
-                        bar.classList.remove('highlight'); 
-                    });
                     const selectedBar = bars[day - 1]; 
                     selectedBar.classList.add('highlight'); 
                     const dayData = data[day - 1]; 
                     infoDiv.textContent = 'День ' + day + ': Минимальная температура ' + dayData.min + '°C, Максимальная температура ' + dayData.max + '°C';
                 } else { 
                     infoDiv.textContent = ''; 
-                    Array.from(bars).forEach(function(bar) {
-                        bar.classList.remove('highlight'); 
-                    });
                 }
             }
         </script>
