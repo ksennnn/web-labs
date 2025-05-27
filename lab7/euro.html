@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Курс евро</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+             function getEuroExchangeRate() {
+                const euro = document.getElementById('euro');
+                const date = document.getElementById('date');
+                const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+                
+                fetch(url)
+                    .then(function(response){
+                        return response.json();
+                    })
+                    .then(function(json){
+                        let diff = json.Valute.EUR.Value - json.Valute.EUR.Previous;
+
+                        const today = new Date(json.Date);
+                        const formattedDate = today.toLocaleDateString('ru-RU');
+
+                        euro.innerHTML = `<b>Курс евро</b>: ${json.Valute.EUR.Value}<br>
+                            <b>Дата на сегодня</b>: ${formattedDate}<br>
+                            <b>Курс вчера</b>: ${json.Valute.EUR.Previous}<br>
+                            <b>Разница</b>: ${diff.toFixed(3)}<br>`;
+
+                        if (diff < 0) {
+                            euro.innerHTML += 'Курс упал';
+                        } else if (diff > 0) {
+                            euro.innerHTML += 'Курс поднялся';
+                        } else {
+                            euro.innerHTML += 'Курс не поменялся';
+                        }
+                        euro.style.display = 'block';
+                    });
+            }
+        </script>
+         <style>
+            .box {
+                text-align: center;
+                margin-top: 20px;
+            }
+            button {
+                background-color: rgba(2, 97, 64, 0.507);
+                color: white;
+                padding: 10px;
+                font-size: 18px;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: rgb(217, 0, 255);
+                box-shadow: 0 0 5px #000;
+            }
+            #euro {
+                border: 2px solid rgb(6, 46, 39);
+                border-radius: 20px;
+                padding: 20px;
+                display: none;
+                background-color: #24f9c791;
+                color:rgb(0, 0, 0);
+                font-size: 18px;
+                width: 300px;
+                margin: 20px auto;
+            }
+            a {
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 7
+        </header>
+
+        <main>
+            <div class="box">
+            <button onclick="getEuroExchangeRate()">Получить курс евро</button>
+            <div id="euro"></div><br>
+            <a href="https://www.cbr-xml-daily.ru/">Курсы валют, API</a>
+            </div>
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
