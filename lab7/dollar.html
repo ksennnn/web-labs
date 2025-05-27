@@ -4,27 +4,54 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ковалёва Ксения Николаевна. Лабораторная 7</title>
+        <title>Ковалёва Ксения Николаевна. Лабораторная Курс доллара</title>
         <link rel="stylesheet" href="../main.css">
         <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
         <link rel="icon" href="../favicon-16x16.png">
         <link rel="icon" href=".../favicon-32x32.png">
+        <script src="dollar-data.js"></script>
         <script>
             function showExchange() {
-                const exchange = [
-                82.5467, 81.5616, 81.4933, 81.9137, 80.9644, 80.8612,
-                80.8883, 80.5500, 80.2237, 80.3134
-            ];
                 let table = document.getElementById('dollar-table');
-                for (let i = 0; i < exchange.length; i++) {
+
+                for(let i = 0; i < exchange.length; i++) {
                     let tr = document.createElement('tr');
                     let td = document.createElement('td');
-                    tr.innerText = exchange[i];
+                    td.innerText = exchange[i].toFixed(2);
                     tr.appendChild(td);
-                    td.appendChild(tr);
+                    table.appendChild(tr);
                 }
+                let sum = 0;
+                for(let i = 0; i < exchange.length; i++) {
+                    sum += exchange[i];
+                }
+                let average = sum / exchange.length;
+                average = average.toFixed(2);
+
+                document.getElementById('detail').innerText = 'Среднее значение: ' + average + ' RUB';
+                    
+                let button = document.querySelector('button');
+                button.style.display = 'none';
             }
         </script>
+        <style>
+            button {
+                height: 50px;
+                color: rgb(250, 248, 248);
+                background-color: rgb(137, 11, 122);
+                font-size: 20px;
+            }
+            td {
+                border: 2px solid rgb(34, 47, 182);
+                background-color: rgb(1, 72, 63);
+                color: white;
+                font-size: 20px;
+            }
+            #detail {
+                font-size: 20px;
+                color: rgb(34, 47, 182);
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -34,6 +61,7 @@
         <main>
             <button onclick="showExchange()">Курс доллара</button>
             <table border="1" id="dollar-table"></table>
+            <div id="detail"></div>
         </main>
 
         <footer>
