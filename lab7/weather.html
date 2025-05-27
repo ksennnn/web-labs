@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Погода</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+            function showWeather() {
+                let url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        const times = data.hourly.time;
+                        const temps = data.hourly.temperature_2m;
+                        const today = new Date().toISOString().slice(0, 10);
+                        const hours = ['08:00', '12:00', '20:00'];
+                        let result = 'Температура сегодня:<br>';
+            
+                        for (let i = 0; i < times.length; i++) {
+                            const [date, time] = times[i].split('T');
+                            if (date == today && hours.includes(time)) {
+                            result += `${time} - ${temps[i]} °C<br>`;
+                            }
+                        }
+                        document.getElementById('weather').innerHTML = result || 'Нет данных на сегодня';
+                        weather.style.display = 'block';
+                    });
+            }
+        </script>
+        <style>
+            button {
+                background-color: rgb(87, 111, 190);
+                color: white;
+                padding: 10px 20px;
+                font-size: 18px;
+                cursor: pointer;
+            }
+            h1 {
+                color: rgb(87, 111, 190);
+                margin: 10px;
+                font-size: 30px;
+            }
+            #weather { 
+                margin-top: 20px; 
+                font-size: 18px;
+                width: 200px;
+                border: 2px solid rgb(87, 111, 190);
+                border-radius: 10px;
+                background-color: rgb(192, 225, 255);
+                color: rgb(38, 38, 107);
+                padding: 10px;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 7
+        </header>
+
+        <main>
+            <h1>Погода в Новосибирске</h1>
+            <button onclick="showWeather()">Показать</button>
+            <div id="weather"></div>
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
