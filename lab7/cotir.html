@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Котировки акций компании ПИК СЗ</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script src="share.js"></script>
+        <script>
+            function showExchange() {
+                const table = document.getElementById('share-table');
+                const button = document.querySelector('button');
+                const detail = document.getElementById('detail');
+
+                table.innerHTML = '<th>Дата</th> <th>Цена, руб</th> <th>Изменение</th>'
+                
+                for (let i = 0; i < date.length; i++) {
+                    let tr = document.createElement('tr');
+
+                    let dateTd = document.createElement('td');
+                    dateTd.innerText = date[i];
+                    tr.appendChild(dateTd);
+
+                    let priceTd = document.createElement('td');
+                    priceTd.innerText = price[i];
+                    tr.appendChild(priceTd);
+
+                    let diffTd = document.createElement('td');
+
+                    if (i === 0) {
+                        diffTd.innerText = '—';
+                        diffTd.style.color = 'black';
+                    } else {
+                        let diff = price[i] - price[i - 1];
+                        let text = diff.toFixed(2);
+
+                        if (diff > 0) {
+                            diffTd.innerText = '+' + text;
+                            diffTd.style.color = 'green';
+                        } else if (diff < 0) {
+                            diffTd.innerText = text;
+                            diffTd.style.color = 'red';
+                        } else {
+                            diffTd.innerText = text;
+                            diffTd.style.color = 'black';
+                        }
+                    }
+
+                    tr.appendChild(diffTd);
+
+                    table.appendChild(tr);
+                    let sum = 0;
+                    for (let i = 0; i < price.length; i++) {
+                        sum += price[i];
+                    }
+                    let average = (sum / price.length).toFixed(2);
+                    let max = Math.max(...price).toFixed(2);
+                    let min = Math.min(...price).toFixed(2);
+
+                    detail.innerHTML = `
+                        Средняя цена: ${average} руб.
+                        <br>Максимальная цена: ${max} руб.
+                        <br>Минимальная цена: ${min} руб.
+                    `;
+                }
+                button.style.display = 'none';   
+            }
+        </script>
+        <style>
+            button {
+                height: 50px;
+                color: rgb(250, 248, 248);
+                background-color: rgb(232, 0, 104);
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная 7
+        </header>
+
+        <main>
+            <button onclick="showExchange()">Курс акций ПИК СЗ</button>
+            <table border="1" id="share-table"></table>
+            <div id="detail"></div>
+        </main>
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
