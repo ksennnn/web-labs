@@ -1,0 +1,102 @@
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ковалёва Ксения Николаевна. Диаграмма температуры и влажности</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="icon" href=".../favicon-32x32.png">
+        <script>
+             function getWeather() {
+                let url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m,relative_humidity_2m&current=temperature_2m,relative_humidity_2m&timezone=auto&past_days=1&forecast_days=1';
+                let info = document.getElementById('info')
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => { 
+                        let temperature = data.current.temperature_2m;
+                        let humidity = data.current.relative_humidity_2m;
+
+                        document.querySelector('#temperature').textContent = temperature;
+                        document.querySelector('#humidity').textContent = humidity;
+
+                        const hourlyData = data.hourly;
+                        const timeLabels = hourlyData.time.map(function(time) { return new Date(time).toLocaleString() });
+                        
+                        const tempData = hourlyData.temperature_2m;
+                        const humidityData = hourlyData.relative_humidity_2m;
+
+                        const ctx = document.getElementById('weatherChart').getContext('2d');
+                        const weatherChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: timeLabels,
+                                datasets: [{
+                                    label: 'Температура (°C)',
+                                    data: tempData,
+                                    backgroundColor: 'rgba(0, 0, 255, 0.6)',
+                                    borderColor: 'rgba(0, 0, 255, 0.6)'
+                                }, {
+                                    label: 'Влажность (%)',
+                                    data: humidityData,
+                                    backgroundColor: 'rgba(70, 193, 190, 0.6)',
+                                    borderColor: 'rgba(70, 193, 190, 0.6)'
+                                }]
+                            },
+                        });
+                    })
+            }
+        </script>
+        <style>
+            h1 {
+                text-align: center;
+                color: #290e3afe;
+                font-size: 30px;
+            }
+            .weather {
+                color: rgb(255, 255, 255);
+                text-align: center;
+                font-size: 18px;
+                font-size: 18px;
+                background: #290e3afe;
+                border-radius: 10px;
+                width: 320px;
+                margin: 0 auto 20px;
+                padding: 10px;
+            }
+            .weatherbox {
+                border: 5px solid rgb(82, 161, 139);
+                border-radius: 10px;
+                background-color: white;
+                width: 90%;
+                max-width: 1000px;
+                margin: 20px auto;
+                background: #ffffff;
+                padding: 20px;
+            }
+
+        </style>
+    </head>
+    <body onload="getWeather()">
+        <header>
+            НГТУ, ФБ, Лабораторная 7
+        </header>
+
+        <main>
+            <h1>Прогноз погоды в Новосибирске</h1>
+            <div class="weather">
+                Текущая температура: <span id="temperature"></span>°C
+                <br>Текущая влажность: <span id="humidity"></span>%
+            </div>
+            <div class="weatherbox">
+                <canvas id="weatherChart"></canvas>
+            </div>
+        </main>
+
+        <footer>
+            &copy; Ковалёва Ксения, ФБИ-32, 2 курс, 2025
+        </footer>
+    </body>
+</html>
