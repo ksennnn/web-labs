@@ -31,6 +31,21 @@
                 width: 320px;
                 margin: 0 30px 20px;
                 padding: 10px;
+                transition: transform 0.3s ease;
+            }
+            .header-menu div:hover {
+                transform: scale(1.2);
+                box-shadow: 0px 0px 11px #666464;
+            }
+            .A {
+                margin-top: 80px;
+                background-image: url('menu-back.avif'); 
+                background-size: cover;
+                background-position: center; 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+                padding-top: 160px;
+                padding-bottom: 160px ;
+                box-shadow: inset 0px 0px 20px 5px rgba(0, 0, 0, 0.615);
             }
 
         </style>
@@ -47,13 +62,15 @@
         </header>
 
         <main>
-            <h1>Меню</h1>
-            <div class="header-menu">
-                <div><a href="history.html">О компании</a></div>
-                <div><a href="">Новости</a></div>
-                <div><a href="">Курс валют</a></div>
-                <div><a href="">Контактные данные</a></div>
-                <div><a href="">Видео</a></div>
+            <div class="A">
+                <h1>Меню</h1>
+                <div class="header-menu">
+                    <div><a href="history.html">О компании</a></div>
+                    <div><a href="news.html">Новости</a></div>
+                    <div><a href="">Курс валют</a></div>
+                    <div><a href="">Контактные данные</a></div>
+                    <div><a href="">Видео</a></div>
+                </div>
             </div>
         </main>
 
