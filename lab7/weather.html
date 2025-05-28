@@ -19,7 +19,7 @@
                         const temps = data.hourly.temperature_2m;
                         const today = new Date().toISOString().slice(0, 10);
                         const hours = ['08:00', '12:00', '20:00'];
-                        let result = 'Температура сегодня:<br>';
+                        let result = '';
             
                         for (let i = 0; i < times.length; i++) {
                             const [date, time] = times[i].split('T');
