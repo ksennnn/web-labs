@@ -10,48 +10,24 @@
         <link rel="icon" href="favicon-16x16.png">
         <link rel="icon" href="favicon-32x32.png">
         <style>
-            footer {
-                position: fixed;
-                bottom: 0;
-                right: 0;
-                left: 0;
-            }
             h1 {
                 text-align: center;
+                font-weight: bold;
+                position: relative;
             }
-            a {
-                color: white;
-            }
-            .header-menu div {
-                color: rgb(255, 255, 255);
+            .video {
+                position: relative;
+                padding: 20px;
+                margin: 0;
+                height: 100%;
+                font-weight: bold;
                 text-align: center;
-                font-size: 18px;
-                background: rgb(5, 81, 143);
-                border-radius: 10px;
-                width: 320px;
-                margin: 0 30px 20px;
-                padding: 10px;
-                transition: transform 0.3s ease;
             }
-            .header-menu div:hover {
-                transform: scale(1.2);
-                box-shadow: 0px 0px 11px #666464;
-            }
-            .A {
-                margin-top: 80px;
-                background-image: url('menu-back.jpg'); 
-                background-size: cover;
-                background-position: center; 
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-                padding-top: 160px;
-                padding-bottom: 160px ;
-                box-shadow: inset 0px 0px 20px 5px rgba(0, 0, 0, 0.615);
-            }
-
         </style>
     </head>
     <body>
         <header>
+            <a name="top"></a>
             <a href="https://www.ogk2.ru/" class="logo">
                 <svg width="117" height="80" viewBox="0 0 117 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -59,21 +35,23 @@
                     fill="#0079C2" />
                 </svg>
             </a>
+            <a href="menu.html">
+                <div class="menu-bars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
         </header>
 
         <main>
-            <div class="A">
-                <h1>Меню</h1>
-                <div class="header-menu">
-                    <div><a href="history.html">О компании</a></div>
-                    <div><a href="news.html">Новости</a></div>
-                    <div><a href="curs.html">Курс валют</a></div>
-                    <div><a href="contact.html">Контактные данные</a></div>
-                    <div><a href="video.html">Видео</a></div>
-                </div>
+            <h1>Корпоративный фильм компании «Мы создаем чудеса»</h1>
+            <div class="video">
+                <iframe width="760" height="515" src="https://www.youtube.com/embed/6WKKOzs7lzA?si=K2YbMEbzI3wndETg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p>Видео взято с YouTube канала <a href="https://www.youtube.com/channel/UCA3rCuOIMx5d9knEGF0hPSw?reload=9" target="_blank">OGK- 2</a></p>
             </div>
         </main>
-
+        <a href="#top" id="toTop">↑</a>
         <footer>
             <div class="footer-bottom">
                 <div>&copy; 2025 ПАО «ОГК-2»</div>
