@@ -16,42 +16,49 @@
                 right: 0;
                 left: 0;
             }
-            h1 {
-                text-align: center;
-            }
-            a {
-                color: white;
-            }
-            .header-menu div {
-                color: rgb(255, 255, 255);
-                text-align: center;
-                font-size: 18px;
-                background: rgb(5, 81, 143);
-                border-radius: 10px;
-                width: 320px;
-                margin: 0 30px 20px;
-                padding: 10px;
-                transition: transform 0.3s ease;
-            }
-            .header-menu div:hover {
-                transform: scale(1.2);
-                box-shadow: 0px 0px 11px #666464;
-            }
-            .A {
-                margin-top: 80px;
-                background-image: url('menu-back.avif'); 
-                background-size: cover;
-                background-position: center; 
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
-                padding-top: 160px;
-                padding-bottom: 160px ;
-                box-shadow: inset 0px 0px 20px 5px rgba(0, 0, 0, 0.615);
+            .addr {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 110px;
+                padding: 0 100px 0px 100px;
             }
 
+            h1 {
+                text-align: center;
+                font-weight: bold;
+            }
+            .contact {
+                width: 500px;
+                border: 1px solid black;
+                margin-bottom: 10px;
+                padding: 10px 20px 10px 20px;
+                border-radius: 20px;
+                box-shadow: 0 5px 10px rgb(58, 58, 68);
+                text-align: center;
+                transition: transform 0.7s ease;
+            }
+            .contact:hover {
+                transform: scale(1.2);
+                box-shadow: 0px 0px 11px #666464;
+                background-color: rgba(249, 213, 140, 0.91);
+                box-shadow: none;
+            }
+            .map {
+                position: relative;
+                font-size: 20px;
+                margin-left: 100px;
+            }
+            p {
+                font-weight: bold;
+                margin: 0;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
         <header>
+            <a name="top"></a>
             <a href="https://www.ogk2.ru/" class="logo">
                 <svg width="117" height="80" viewBox="0 0 117 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -59,21 +66,37 @@
                     fill="#0079C2" />
                 </svg>
             </a>
+            <a href="menu.html">
+                <div class="menu-bars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
         </header>
 
         <main>
-            <div class="A">
-                <h1>Меню</h1>
-                <div class="header-menu">
-                    <div><a href="history.html">О компании</a></div>
-                    <div><a href="news.html">Новости</a></div>
-                    <div><a href="curs.html">Курс валют</a></div>
-                    <div><a href="contact.html">Контактные данные</a></div>
-                    <div><a href="">Видео</a></div>
+            <h1>Контактные данные</h1>
+            <div class="addr">
+                <div class="contact">
+                    <p>Адрес главного офиса:</p>
+                    196605 г. Санкт-Петербург, вн.тер.г. поселок Шушары, ш. Петербургское, д. 66, к. 1, литера А, этаж 7, помещ. 36-Н,
+                    каб. 701
+                    <p>Телефон: +7 (812) 646-13-64</p>
+                    <p>Е-mail: <a href="mailto:office@ogk2.ru">office@ogk2.ru</a></p>
+                    <p>Telegram: <a href="https://t.me/ogk2_energy">t.me/ogk2_energy</a></p>
+                    <p>YouTube: <a href="https://www.youtube.com/channel/UCA3rCuOIMx5d9knEGF0hPSw?reload=9">@ogk-2435</a></p>
+                    <p>ВК: <a href="https://vk.com/ogk2life">vk.com/ogk2life</a></p>
+                     <p>Сайт компании: <a href="https://www.ogk2.ru/">ogk2.ru</a></p>
+                </div>
+                
+                <div class="map">
+                    <p>Расположение на карте Яндекс:</p>
+                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A5da2555e8b3b3aa9c6968d0778c4b449c4a85b8b019ee59ea6f5ad67bb48f9cb&amp;source=constructor" width="700" height="421" frameborder="0"></iframe>            </div>
                 </div>
             </div>
         </main>
-
+        <a href="#top" id="toTop">↑</a>
         <footer>
             <div class="footer-bottom">
                 <div>&copy; 2025 ПАО «ОГК-2»</div>
